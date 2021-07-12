@@ -1,16 +1,36 @@
 <div class="content-wrapper page boxed">
+  <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/brand-logo.png" alt="">
+  </div>
   <div class="section-hero">
     <img src="/assets/images/comics.png" class="thumbnail-section thumbnail-section--comics" alt="">
     <h1 class="main-title">Comics</h1>
   </div>
 
-  <div class="comics cards-wrapper">
+  <div class="comics cards-wrapper" *ngIf="comics.length">
     <!-- style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');" -->
     <div *ngFor="let item of comics" class="card-wrapper bg-img"
       style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');">
       <div class="overlay"></div>
+
+      <!-- Title -->
       <h3 class="item-title">{{item.title}}</h3>
-      <!-- <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt=""> -->
+
+      <!-- Authors -->
+      <p class="" *ngIf="item.creators.items.length ; else notAvailable">{{item.creators.items[0].name}}</p>
+      <ng-template #notAvailable>
+        Not Available
+      </ng-template>
+
+      <!-- prices -->
+      <p class="" *ngIf="item.prices.length || item.prices[0].price === 0 ; else notAvailable">{{item.prices[0].price}}
+      </p>
+      <ng-template #notAvailable>
+        Not Available
+      </ng-template>
     </div>
   </div>
+  <!-- <pre>
+    {{comics}}
+  </pre> -->
 </div>
