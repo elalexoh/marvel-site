@@ -1,0 +1,16 @@
+<div class="content-wrapper page boxed">
+  <div class="section-hero">
+    <img src="/assets/images/series.png" class="thumbnail-section thumbnail-section--series" alt="">
+    <h1 class="main-title">Series</h1>
+  </div>
+  <h1>
+    {{loading}}
+  </h1>
+  <h2 class="content-main-title"><span>series</span></h2>
+  <div class="series">
+    <div *ngFor="let item of series">
+      <p>{{item.title}}</p>
+      <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="">
+    </div>
+  </div>
+</div>

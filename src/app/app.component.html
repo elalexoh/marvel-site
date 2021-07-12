@@ -1,15 +1,54 @@
-<header>
-  <div class="brand">
-    header
-  </div>
-  <ul>
-    <li>
-      <a routerLink="/"> Home</a>
-    </li>
-    <li><a routerLink="/prueba"> Prueba</a></li>
-    <li><a routerLink="/about"> about</a></li>
-    <li><a routerLink="/courses"> courses</a></li>
-  </ul>
-</header>
+<main>
+  <div class="app-content">
+    <!-- main menu -->
+    <header class="header-app">
+      <div class="header-wrapper boxed">
+        <div class="brand">
+          <a routerLink="/" class="text-decoration-none">
+            <img src="/assets/images/brand-logo.png" alt="">
+          </a>
 
-<router-outlet></router-outlet>
+        </div>
+        <ul class="options bold">
+          <li class="options__item"><a class="text-decoration-none" routerLink="/comics">Comics</a></li>
+          <li class="options__item"><a class="text-decoration-none" routerLink="/characters">Characters</a></li>
+          <li class="options__item"><a class="text-decoration-none" routerLink="/creators">Creators</a></li>
+          <li class="options__item"><a class="text-decoration-none" routerLink="/series">Series</a></li>
+        </ul>
+      </div>
+
+    </header>
+
+    <!-- hero -->
+    <div class="hero bg-img" style="background-image: url('/assets/images/bg-img.jpg');">
+      <!-- content header -->
+      <div *ngIf="currentRoute === '/'" class="hero-subheader bg-img"
+        style="background-image: url('/assets/images/bg-img.jpg');">
+        <div class="content-wrapper">
+          <p class="disclaimer">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <h1 class="main-title">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
+          <p class="cta-label">Lorem ipsum, dolor sit</p>
+          <button class="cta-button">
+
+          </button>
+        </div>
+        <img class="image-featured" src="/assets/images/toxin.png" alt="">
+      </div>
+      <!-- <h1>
+        {{currentRoute === '/'}}
+      </h1> -->
+    </div>
+
+    <!-- Content -->
+    <!-- style="background-image: url('/assets/images/bg-img.jpg');" -->
+    <div class="content-app">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-app">
+      <p><span class="accent-2">Frederick A. Gonzalez</span> © 2021 All right reserved.</p>
+    </footer>
+  </div>
+
+</main>

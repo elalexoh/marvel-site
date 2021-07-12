@@ -1,0 +1,16 @@
+<div class="content-wrapper page boxed">
+  <div class="section-hero">
+    <img src="/assets/images/comics.png" class="thumbnail-section thumbnail-section--comics" alt="">
+    <h1 class="main-title">Comics</h1>
+  </div>
+
+  <div class="comics cards-wrapper">
+    <!-- style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');" -->
+    <div *ngFor="let item of comics" class="card-wrapper bg-img"
+      style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');">
+      <div class="overlay"></div>
+      <h3 class="item-title">{{item.title}}</h3>
+      <!-- <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt=""> -->
+    </div>
+  </div>
+</div>

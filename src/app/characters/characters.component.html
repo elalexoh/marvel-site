@@ -1,0 +1,16 @@
+<div class="content-wrapper page boxed">
+  <div class="section-hero">
+    <img src="/assets/images/characters.png" class="thumbnail-section thumbnail-section--characters" alt="">
+    <h1 class="main-title">Characters</h1>
+  </div>
+  <h1>
+    {{loading}}
+  </h1>
+  <h2 class="content-main-title"><span>characters</span></h2>
+  <div class="characters">
+    <div *ngFor="let item of characters">
+      <p>{{item.title}}</p>
+      <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="">
+    </div>
+  </div>
+</div>
