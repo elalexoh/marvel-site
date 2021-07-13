@@ -3,8 +3,10 @@
 - npm i
 - Correr `ng serve -o`
 
---Este proyecto no ha sido desarrollado para ser adaptativo o responsive
---Resolucion minima recomendada 1920 x 1080
+# Aclaraciones
+
+-Este proyecto no ha sido desarrollado para ser adaptativo o responsive
+-Resolucion minima recomendada 1920 x 1080
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 

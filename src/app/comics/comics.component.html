@@ -1,15 +1,25 @@
 <div class="content-wrapper page boxed">
   <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/loader.svg" alt="">
     <img src="/assets/images/brand-logo.png" alt="">
   </div>
   <div class="section-hero">
     <img src="/assets/images/comics.png" class="thumbnail-section thumbnail-section--comics" alt="">
     <h1 class="main-title">Comics</h1>
+    <div class="filter-wrapper">
+      <input type="text" name="querySearch" class="input-filter" (keyup)="onKey()" [(ngModel)]="querySearch">
+      <div class="sort-filters">
+        <span class="label">Ordernar por: </span>
+        <button class="button" (click)="sortComicsByPrice('asc')">Precio Asc</button>
+        <button class="button" (click)="sortComicsByPrice('desc')">Precio Desc</button>
+        <button class="button" (click)="sortComicsByTitle('asc')">Título Asc</button>
+        <button class="button" (click)="sortComicsByTitle('desc')">Título Desc</button>
+      </div>
+    </div>
   </div>
 
-  <div class="comics cards-wrapper" *ngIf="comics.length">
-    <!-- style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');" -->
-    <div *ngFor="let item of comics" class="card-wrapper bg-img"
+  <div class="comics cards-wrapper">
+    <div [routerLink]="['/comic', item.id]" *ngFor="let item of filteredComics" class="card-wrapper bg-img"
       style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');">
       <div class="overlay"></div>
 
@@ -17,16 +27,17 @@
       <h3 class="item-title">{{item.title}}</h3>
 
       <!-- Authors -->
-      <p class="" *ngIf="item.creators.items.length ; else notAvailable">{{item.creators.items[0].name}}</p>
+      <p class="author" *ngIf="item.creators.items.length ; else notAvailable">{{item.creators.items[0].name}}</p>
       <ng-template #notAvailable>
-        Not Available
+        <span class="n-a">Información no disponible</span>
       </ng-template>
 
       <!-- prices -->
-      <p class="" *ngIf="item.prices.length || item.prices[0].price === 0 ; else notAvailable">{{item.prices[0].price}}
+      <p class="price" *ngIf="item.prices.length || item.prices[0].price === 0 ; else notPrice">
+        {{item.prices[0].price}}
       </p>
-      <ng-template #notAvailable>
-        Not Available
+      <ng-template #notPrice>
+        <!-- <span>Información no disponible</span> -->
       </ng-template>
     </div>
   </div>

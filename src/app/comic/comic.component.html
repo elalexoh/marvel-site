@@ -1,0 +1,24 @@
+<div class="content-wrapper page boxed">
+  <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/loader.svg" alt="">
+    <img src="/assets/images/brand-logo.png" alt="">
+  </div>
+  <div class="section-hero">
+    <img src="/assets/images/comics.png" class="thumbnail-section thumbnail-section--comics" alt="">
+    <h1 class="main-title">Comics</h1>
+  </div>
+
+  <h1>
+    {{comicId}}
+  </h1>
+  <p>
+    <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
+  </p>
+  <p *ngIf="comic.description; else noDescription">
+    {{comic.description}}
+  </p>
+  <ng-template #noDescription>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident tempore deleniti, sit delectus error corrupti!
+    Totam quia incidunt architecto ex doloremque aliquid amet. Sed libero voluptate totam laudantium distinctio officia.
+  </ng-template>
+</div>

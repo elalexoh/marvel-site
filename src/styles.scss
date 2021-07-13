@@ -285,22 +285,33 @@ body {
     overflow        : hidden;
     cursor          : pointer;
 
-    // filter             : blur(4px);
-    // display         : flex;
-    // justify-content : center;
-    // align-items     : center;
+    .n-a {
+      font-size  : 12px;
+      color      : white;
+      z-index    : 25;
+      position   : relative;
+      opacity    : .8;
+      font-family: Oswald;
+    }
 
-    // &::before {
-    //   content            : "";
-    //   background-color   : $main-background;
-    //   position           : absolute;
-    //   opacity            : .6;
-    //   top                : 0;
-    //   left               : 0;
-    //   width              : 100%;
-    //   height             : 100%;
-    //   // backdrop-filter : blur(500px);
-    // }
+    .author {
+      font-size  : 16px;
+      margin     : 0;
+      position   : relative;
+      z-index    : 25;
+      font-family: Oswald;
+    }
+
+    .price {
+      position   : absolute;
+      bottom     : 0;
+      right      : 0;
+      font-size  : 18px;
+      color      : #fff;
+      transform  : translate(-1.5rem);
+      font-family: 'Oswald';
+    }
+
     .overlay {
       background-color: $main-background;
       position        : absolute;
@@ -337,14 +348,16 @@ body {
   top             : 0;
   left            : 0;
   display         : flex;
+  flex-direction  : column;
   justify-content : center;
   align-items     : center;
   transform       : translate(0);
   transition      : .5s ease;
 
-  img {
-    width : 150px;
-    height: auto;
+  img:nth-child(2) {
+    width  : 150px;
+    height : auto;
+    opacity: .5;
   }
 
   &.loaded {
@@ -352,5 +365,70 @@ body {
   }
 
   &.loading {}
+}
 
+.section-hero {
+  .filter-wrapper {
+    background-color      : $main-background;
+    position              : absolute;
+    bottom                : -150%;
+    // bottom             : 50%;
+    width                 : 75%;
+    left                  : 50%;
+    transform             : translate(-50%, 50%);
+    z-index               : 50;
+    // height          : 75px;
+    border-radius         : 5px;
+    display               : flex;
+    flex-direction        : column;
+    justify-content       : center;
+    align-items           : center;
+    transition            : .5s ease;
+    padding               : 1.5rem;
+    gap                   : 15px;
+
+    .input-filter {
+      border       : 0;
+      border-radius: 5px;
+      font-size    : 18px;
+      outline      : 0;
+      padding      : .5rem 1.5rem;
+      font-family  : Oswald;
+      color        : $main-background;
+      width        : 500px;
+    }
+
+    .label {
+      font-size  : 16px;
+      color      : white;
+      font-family: Oswald;
+    }
+
+    .button {
+
+      cursor          : pointer;
+      border          : 0;
+      background-color: $accent;
+      font-size       : 14px;
+      text-transform  : capitalize;
+      color           : white;
+      font-family     : Oswald;
+      padding         : .5rem 1rem;
+      margin          : 0 .5rem;
+      border          : 2px solid transparent;
+      transition      : .5s ease;
+
+      &:hover {
+        border          : 2px solid $accent;
+        color           : $accent;
+        background-color: $main-background;
+      }
+    }
+  }
+
+  &:hover {
+    .filter-wrapper {
+      bottom: 50%;
+    }
+  }
 }
