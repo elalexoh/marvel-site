@@ -1,0 +1,27 @@
+<div class="content-wrapper page detail-page boxed">
+  <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/loader.svg" alt="">
+    <img src="/assets/images/brand-logo.png" alt="">
+  </div>
+
+  <div class="section-hero section-hero--detail">
+    <div class="thumbnail bg-img">
+      <!--       style="background-image: url('{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}');" -->
+      <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="">
+    </div>
+    <div class="body">
+      <div class="header">
+        <h2 class="title">
+          {{creator.fullName}}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <h2 class="subsection-title">Comics</h2>
+  <div class="character-comics cards-wrapper no-margin">
+    <div *ngFor="let item of creator.comics.items" class="card-wrapper">
+      <div class="overlay"></div>
+      <h3 class="item-title">{{item.name}}</h3>
+    </div>
+  </div>
+</div>

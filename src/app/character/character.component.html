@@ -1,0 +1,47 @@
+<div class="content-wrapper page detail-page boxed">
+  <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/loader.svg" alt="">
+    <img src="/assets/images/brand-logo.png" alt="">
+  </div>
+
+  <div class="section-hero section-hero--detail">
+    <div class="thumbnail bg-img">
+      <!--       style="background-image: url('{{character.thumbnail.path}}.{{character.thumbnail.extension}}');" -->
+      <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+    </div>
+    <div class="body">
+      <div class="header">
+        <h2 class="character-title">
+          {{character.name}}
+        </h2>
+        <!-- <div class="authors">
+          <span class="author">|</span>
+          <span class="author" *ngFor="let item of character.creators.items">
+            {{item.name}} - {{item.role}} |
+          </span>
+        </div> -->
+      </div>
+      <div class="description" *ngIf="character.description; else notAvailable">
+        {{character.description}}
+      </div>
+      <ng-template #notAvailable>
+        <span class="description">Not available info</span>
+      </ng-template>
+    </div>
+  </div>
+
+  <h2 class="subsection-title">Stories</h2>
+  <div class="character-comics cards-wrapper no-margin">
+    <div *ngFor="let item of character.stories.items" class="card-wrapper">
+      <div class="overlay"></div>
+      <h3 class="item-title">{{item.name}}</h3>
+    </div>
+  </div>
+  <h2 class="subsection-title">Series</h2>
+  <div class="character-series cards-wrapper no-margin">
+    <div *ngFor="let item of character.series.items" class="card-wrapper">
+      <div class="overlay"></div>
+      <h3 class="item-title">{{item.name}}</h3>
+    </div>
+  </div>
+</div>

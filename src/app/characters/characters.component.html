@@ -1,16 +1,17 @@
 <div class="content-wrapper page boxed">
+  <div [ngClass]="loading ? 'loading' : 'loaded'" class="loading-component">
+    <img src="/assets/images/loader.svg" alt="">
+    <img src="/assets/images/brand-logo.png" alt="">
+  </div>
   <div class="section-hero">
     <img src="/assets/images/characters.png" class="thumbnail-section thumbnail-section--characters" alt="">
     <h1 class="main-title">Characters</h1>
   </div>
-  <h1>
-    {{loading}}
-  </h1>
-  <h2 class="content-main-title"><span>characters</span></h2>
-  <div class="characters">
-    <div *ngFor="let item of characters">
-      <p>{{item.title}}</p>
-      <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="">
+  <div class="characters cards-wrapper">
+    <div [routerLink]="['/character', item.id]" *ngFor="let item of characters" class="card-wrapper bg-img"
+      style="background-image: url('{{item.thumbnail.path}}.{{item.thumbnail.extension}}');">
+      <div class="overlay"></div>
+      <h3 class="item-title">{{item.name}}</h3>
     </div>
   </div>
 </div>

@@ -15,6 +15,12 @@ const routes: Routes = [
   { path: 'creators', loadChildren: () => import('./creators/creators.module').then(m => m.CreatorsModule) },
   { path: 'series', loadChildren: () => import('./series/series.module').then(m => m.SeriesModule) },
 
+  { path: 'character', loadChildren: () => import('./character/character.module').then(m => m.CharacterModule) },
+
+  { path: 'creator', loadChildren: () => import('./creator/creator.module').then(m => m.CreatorModule) },
+
+  { path: 'serie', loadChildren: () => import('./serie/serie.module').then(m => m.SerieModule) },
+
 
 ];
 

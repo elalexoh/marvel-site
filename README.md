@@ -6,7 +6,8 @@
 # Aclaraciones
 
 -Este proyecto no ha sido desarrollado para ser adaptativo o responsive
--Resolucion minima recomendada 1920 x 1080
+-Resolución minima recomendada 1920 x 1080
+-Mockup utilizado para el sitio https://www.figma.com/file/N0z0gmZVn2CtwICwQA6zAF/ComicStudio?node-id=0%3A1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
